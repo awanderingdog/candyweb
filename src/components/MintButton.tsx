@@ -160,8 +160,15 @@ const MintButton = (props: MintButtonProps) => {
       disabled={isSoldOut || isMinting || !isActive}
       onClick={onMint}
       variant="contained"
-      background-color="black"
-      style={{ padding: "35px 70px", fontSize: "30px" }}
+      style={{
+        padding: "18px 45px",
+        fontSize: "20px",
+        fontWeight: "bold",
+        background: "#CCCCCD",
+        color: "#666666",
+        border: "none",
+        borderRadius: "10px",
+      }}
     >
       {isSoldOut ? (
         "SOLD OUT"

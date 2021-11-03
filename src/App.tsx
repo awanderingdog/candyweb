@@ -80,13 +80,13 @@ const App = () => {
           <WalletDialogProvider>
             <Router>
               <Switch>
-                <Route path="/buy">
+                <Route path="/awdsale">
                   <PageTwo />
                 </Route>
-                <Route path="/presale">
+                <Route path="/wanderwhitelist">
                   <PageOne />
                 </Route>
-                <Route render={() => <Redirect to="/presale" />} />
+                <Route render={() => <Redirect to="/awdsale" />} />
               </Switch>
             </Router>
           </WalletDialogProvider>

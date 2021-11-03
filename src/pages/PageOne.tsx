@@ -12,15 +12,12 @@ import {
   Hidden,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-
 import * as anchor from "@project-serum/anchor";
-
 import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
-
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
 // import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
-
+import "../index.css";
 import {
   CandyMachine,
   awaitTransactionSignatureConfirmation,
@@ -89,7 +86,7 @@ const TierOne = () => {
       <Container component="main" maxWidth="lg">
         <Box
           sx={{
-            marginTop: 64,
+            marginTop: 240,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -106,8 +103,11 @@ const TierOne = () => {
           ></Box>
           <Box>
             <Box sx={{ marginBottom: 12 }}>
-              <Typography component="h1" variant="h2">
-                Not all dogs who wander are lost
+              <Typography
+                style={{ fontSize: "25px", fontWeight: "bold" }}
+                id="header"
+              >
+                A Wandering Dog
               </Typography>
             </Box>
           </Box>
@@ -115,25 +115,23 @@ const TierOne = () => {
 
           <Box
             sx={{
-              marginBottom: 12,
+              marginBottom: 20,
             }}
           >
-            <Typography component="h2" variant="h3">
-              pre-sale mint
+            <Typography style={{ fontSize: "20px" }}>whitelist mint</Typography>
+          </Box>
+          <Box
+            sx={{
+              margin: 10,
+            }}
+          >
+            <Typography style={{ fontSize: "15px", fontStyle: "italic" }}>
+              mint price: 3 sol
             </Typography>
           </Box>
           <Box
             sx={{
-              margin: 32,
-            }}
-          >
-            <Typography component="h1" variant="h4">
-              Minting: Price 3 SOL
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              margin: 32,
+              margin: 0,
             }}
           >
             {!wallet ? (
@@ -158,10 +156,10 @@ const TierOne = () => {
               ></MintButton>
             )}
             {wallet && (
-              <Typography component="h1" variant="h4">
+              <Typography style={{ fontSize: "15px", fontStyle: "italic" }}>
                 {/* Balance {(balance || 0).toLocaleString()} SOL */}
-                {wallet && <p>Remaining: {itemsRemaining}</p>}
-                {wallet && <p>Total: {itemsAvailable}</p>}
+                {wallet && <p>remaining: {itemsRemaining} nfts</p>}
+                {wallet && <p>total: {itemsAvailable} nfts</p>}
               </Typography>
             )}
           </Box>

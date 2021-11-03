@@ -32,3 +32,8 @@ body {
   height: 100%;
   width: 100%;
 }
+
+#header {
+  font-size: "900px";
+  font-weight: "bold";
+}
