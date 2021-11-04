@@ -30,14 +30,14 @@ import {
 import MintButton from "../components/MintButton";
 
 const connection = new anchor.web3.Connection(
-  "https://api.mainnet-beta.solana.com/"
+  "https://explorer-api.devnet.solana.com"
 );
 
 const CANDYMACHINE = {
-  id: new PublicKey("ArmgCzuYxPw8Co49gr6LKTwPoj4XoeUZT4EowZjcttTf"),
-  treasury: new PublicKey("D3euPBeUybyCKv3YUs6ae58aFKdhisM3YXiFeYi1J8vF"),
-  config: new PublicKey("5h6CQN2BZZfxHXeaHq2WLMKotnh3wNKbbBLMi6v4zGQ1"),
-  startDate: 1632535200,
+  id: new PublicKey("CnzAJy8iq57bPSwU41i4HfhYMVbs3VvLATquxrvd9sUA"),
+  treasury: new PublicKey("HejLuohXenFxU99ERaij3FWHpi7mfJiNZYDnPUdQL9sT"),
+  config: new PublicKey("BsefQ8Q5QzQDVvbPfhFPa5qUP3mbY3vtGpXwd9F2J7RH"),
+  startDate: 818035920,
   txTimeout: 30000,
 };
 
