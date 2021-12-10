@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import Countdown from "react-countdown";
+// import styled from "styled-components";
+// import Countdown from "react-countdown";
 import "@fontsource/lora";
 import {
-  Button,
-  CircularProgress,
+  // Button,
+  // CircularProgress,
   Snackbar,
   Container,
   Box,
   Typography,
-  Hidden,
+  // Hidden,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import * as anchor from "@project-serum/anchor";
@@ -18,13 +18,9 @@ import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
 // import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
 import "../index.css";
-import {
-  CandyMachine,
-  awaitTransactionSignatureConfirmation,
-  getCandyMachineState,
-  mintOneToken,
-  shortenAddress,
-} from "../utils/candy-machine";
+// import {
+//   CandyMachine,
+// } from "../utils/candy-machine";
 import MintButton from "../components/MintButton";
 
 const connection = new anchor.web3.Connection(
@@ -41,9 +37,9 @@ const CANDYMACHINE = {
 
 const TierOne = () => {
   const [balance, setBalance] = useState<number>();
-  const [isActive, setIsActive] = useState(false); // true when countdown completes
-  const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
-  const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
+  // const [isActive, setIsActive] = useState(false); // true when countdown completes
+  // const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
+  // const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
 
   const [itemsAvailable, setItemsAvailable] = useState(0);
   const [itemsRedeemed, setItemsRedeemed] = useState(0);
@@ -55,10 +51,10 @@ const TierOne = () => {
     severity: undefined,
   });
 
-  const [startDate, setStartDate] = useState(new Date(CANDYMACHINE.startDate));
+  // const [startDate, setStartDate] = useState(new Date(CANDYMACHINE.startDate));
 
   const wallet = useAnchorWallet();
-  const [candyMachine, setCandyMachine] = useState<CandyMachine>();
+  // const [candyMachine, setCandyMachine] = useState<CandyMachine>();
 
   if (wallet) {
     connection.getBalance(wallet.publicKey).then((balance) => {
@@ -148,6 +144,7 @@ const TierOne = () => {
                 startDate={CANDYMACHINE.startDate}
                 treasury={CANDYMACHINE.treasury}
                 txTimeout={CANDYMACHINE.txTimeout}
+                amount={0}
                 onSuccess={onSuccess}
                 onError={onError}
                 setItemsRemaining={setItemsRemaining}
