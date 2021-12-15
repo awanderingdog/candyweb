@@ -9,14 +9,12 @@ import * as anchor from "@project-serum/anchor";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
-import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
 
 import {
   CandyMachine,
   awaitTransactionSignatureConfirmation,
   getCandyMachineState,
-  mintOneToken,
-  shortenAddress,
+  mintMultipleToken,
 } from "../utils/candy-machine";
 
 const CounterText = styled.span``; // add your styles here
@@ -28,6 +26,7 @@ export interface MintButtonProps {
   startDate: number;
   treasury: anchor.web3.PublicKey;
   txTimeout: number;
+  amount: number;
   setItemsAvailable: (items: number) => void;
   setItemsRedeemed: (items: number) => void;
   setItemsRemaining: (items: number) => void;
@@ -60,28 +59,38 @@ const MintButton = (props: MintButtonProps) => {
     try {
       setIsMinting(true);
       if (wallet && candyMachine?.program) {
-        const mintTxId = await mintOneToken(
+        const mintTxId = await mintMultipleToken(
           candyMachine,
           props.config,
           wallet.publicKey,
-          props.treasury
+          props.treasury,
+          props.amount
         );
 
-        const status = await awaitTransactionSignatureConfirmation(
-          mintTxId,
-          props.txTimeout,
-          props.connection,
-          "singleGossip",
-          false
-        );
+        // const mintTxId = await mintOneToken(
+        //   candyMachine,
+        //   props.config,
+        //   wallet.publicKey,
+        //   props.treasury
+        // );
 
-        if (!status?.err) {
-          //success
-          if (props.onSuccess) props.onSuccess(true);
-        } else {
-          // error
-          if (props.onError) props.onError("Mint failed! Please try again!s");
-        }
+        // const status = await awaitTransactionSignatureConfirmation(
+        //   mintTxId,
+        //   props.txTimeout,
+        //   props.connection,
+        //   "singleGossip",
+        //   false
+        // );
+
+        console.log('minting result: ', mintTxId);
+        
+        // if (!status?.err) {
+        //   //success
+        //   if (props.onSuccess) props.onSuccess(true);
+        // } else {
+        //   // error
+        //   if (props.onError) props.onError("Mint failed! Please try again!s");
+        // }
       }
     } catch (error: any) {
       // TODO: blech:
