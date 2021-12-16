@@ -135,7 +135,7 @@ const TierOne = () => {
                 Connect Wallet
               </WalletDialogButton>
             ) : (
-              <div>
+              <Box sx={{ width: "min-content" }}>
                 <MintButton
                   connection={connection}
                   candyMachineId={CANDYMACHINE.id}
@@ -150,7 +150,7 @@ const TierOne = () => {
                   setItemsAvailable={setItemsAvailable}
                   setItemsRedeemed={setItemsRedeemed}
                 ></MintButton>
-                <Box sx={{ marginTop: "20px", paddingX:"14%" }}>
+                <Box sx={{ marginTop: "20px" }}>
                   <TextField
                     id="outlined-number"
                     label="amount"
@@ -164,7 +164,7 @@ const TierOne = () => {
                     }}
                   />
                 </Box>
-              </div>
+              </Box>
             )}
             {wallet && (
               <Typography style={{ fontSize: "15px", fontStyle: "italic" }}>
